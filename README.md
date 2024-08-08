@@ -2,53 +2,30 @@
 
 ## Concurrent Memory Pool with Deep Learning Example
 
-### 프로젝트 소개
+## 프로젝트 소개
 고병렬 메모리 풀 및 딥러닝 예제 프로젝트는 고병렬 환경에서 메모리 할당 및 해제 요구를 효과적으로 관리하는 솔루션을 제공합니다. 이 프로젝트는 사용자 정의 메모리 풀 관리자를 구현하여 스레드 캐시, 중앙 캐시 및 페이지 캐시를 결합하여 메모리 작업의 효율성을 크게 향상시킵니다. 또한, 사용자 정의 메모리 할당자의 실제 적용 성능을 보여주는 딥러닝 신경망 예제도 포함되어 있습니다.
 
-### 주요 특징
+## 주요 특징
 효율적인 메모리 할당 및 해제: 사용자 정의 메모리 풀을 통해 메모리 관리의 효율성을 높이고, 메모리 할당 및 해제 시간을 크게 줄입니다.
 고병렬 환경 지원: 스레드 안전한 메모리 할당 및 해제 메커니즘을 통해 고병렬 환경에서도 안정적인 성능을 보장합니다.
 딥러닝 예제 응용: 딥러닝 신경망 훈련 예제를 포함하여, 실제 응용에서 사용자 정의 메모리 할당자의 장점을 보여줍니다.
 성능 테스트: 벤치마크 테스트를 통해 사용자 정의 메모리 할당자와 표준 메모리 할당자의 성능을 비교합니다.
 
-### 기술 스택
+## 기술 스택
 프로그래밍 언어: C++
 빌드 도구: Visual Studio 2019
 테스트 프레임워크: Visual Studio 2019
 딥러닝 라이브러리: FNN 신경망 
 
-### 프로젝트 구조
-ConcurrentMemoryPool/
-├── ConcurrentMemoryPool/
-│   ├── CentralCache.h
-│   ├── Common.h
-│   ├── ConcurrentAlloc.h
-│   ├── ObjectPool.h
-│   ├── PageCache.h
-│   ├── PageMap.h
-│   ├── ThreadCache.h
-│   ├── NeuralNetwork.h
-│   ├── CentralCache.cpp
-│   ├── PageCache.cpp
-│   ├── ThreadCache.cpp
-│   ├── Benchmark.cpp
-│   ├── UnitTest.cpp
-│   ├── NeuralNetwork.cpp
-│   ├── main.cpp
-├── AIProject/
-│   ├── NeuralNetwork.h
-│   ├── NeuralNetwork.cpp
-│   ├── main.cpp
-│   ├── ConcurrentAlloc.h
-├── lib/
-│   ├── ConcurrentMemoryPool.lib
-│   └── ConcurrentMemoryPool.pdb
+## 프로젝트 구조
+![image](https://github.com/user-attachments/assets/009c71f0-2bea-4bce-9b40-bdd6e6e477b3)
 
-### 고병렬 메모리 풀 구현
+
+## 고병렬 메모리 풀 구현
 서문
 고성능 컴퓨팅과 병렬 프로그래밍에서는 메모리 관리 시스템의 효율성이 매우 중요합니다. 본 프로젝트는 효율적인 메모리 관리 시스템을 설계하고 구현하는 것을 목표로 하며, 주요 구성 요소로 CentralCache, PageCache, ThreadCache를 포함하고 있습니다. 이러한 구성 요소의 협력을 통해 메모리 할당 및 해제 메커니즘을 최적화하고 시스템 성능을 향상시켰습니다.
 
-# 구성 요소 개요
+## 구성 요소 개요
 CentralCache: PageCache에서 할당된 대용량 메모리를 관리하고 이를 잘게 나누어 ThreadCache에 제공합니다.
 PageCache: 운영 체제에서 대용량 메모리를 신청하고 해제하며 이를 CentralCache에 할당합니다.
 ThreadCache: 각 스레드가 독점하는 메모리 캐시로, CentralCache에서 메모리 블록을 받아와 메모리 할당의 락 경쟁을 줄입니다.
@@ -81,6 +58,7 @@ CentralCache, PageCache, ThreadCache의 설계 및 구현을 통해 우리는 �
 
 # 결과
 ![image](https://github.com/user-attachments/assets/b2d4b0b8-878b-4eeb-bcad-f9df8d57bbde)
+
 # 테스트 환경
 4개의 스레드가 동시에 10번의 라운드를 실행.
 각 라운드에서 100,000번의 malloc, free, ConcurrentAlloc, ConcurrentFree를 수행.
@@ -106,98 +84,98 @@ ConcurrentAlloc 및 ConcurrentFree 함수가 malloc 및 free 함수보다 약 2.
 # Deep Learning Example
 아래에서는 고병렬 메모리 프로젝트 를 FNN 신경망에 추가하여 일련의 실험을 수행하고, 고병렬 메모리가 모델의 학습 속도를 향상시킬 수 있음을 증명할 것입니다.
 
-# 고병합 프로젝트 정적 라이브러리 생성 요약
+## 고병합 프로젝트 정적 라이브러리 생성 요약
 
-# 프로젝트 속성 구성:
+## 프로젝트 속성 구성:
 
-# 일반 속성:
+## 일반 속성:
 프로젝트 속성에서 "일반" 옵션을 선택하고 "구성 유형"을 "정적 라이브러리(.lib)"로 설정합니다.
 
-# C/C++ 속성:
+## C/C++ 속성:
 "C/C++" -> "일반" 옵션에서 "추가 포함 디렉터리"에 헤더 파일 경로가 포함되어 있는지 확인합니다.
 
-# 링커 속성:
+## 링커 속성:
 "링커" -> "일반" 옵션에서 "추가 라이브러리 디렉터리"에 라이브러리 파일 경로가 포함되어 있는지 확인합니다.
 "링커" -> "입력" 옵션에서 "추가 종속 항목"에 필요한 라이브러리 파일이 포함되어 있는지 확인합니다.
 
-# 정적 라이브러리 생성:
+## 정적 라이브러리 생성:
 프로젝트에 필요한 소스 코드와 헤더 파일을 작성하여 프로젝트가 성공적으로 컴파일되도록 합니다.
 프로젝트를 빌드하고 생성된 디렉터리를 확인하여 .lib 파일이 생성되었는지 확인합니다.
 
-# 신경망 프로젝트에 통합:
+## 신경망 프로젝트에 통합:
 신경망 프로젝트에 생성된 정적 라이브러리 파일과 관련 헤더 파일을 도입합니다.
 신경망 코드에서 사용자 정의 메모리 할당기를 사용하여 메모리 관리를 수행합니다.
 
-# 테스트 케이스 작성 및 실행:
+## 테스트 케이스 작성 및 실행:
 신경망 훈련 코드를 작성하고 사용자 정의 메모리 할당기와 기본 메모리 할당기를 사용하여 비교 테스트를 수행합니다.
 테스트 코드를 실행하고 훈련 시간과 메모리 할당 및 해제 시간을 기록합니다
 
-# 성능 테스트: 사용자 정의 메모리 할당기와 기본 메모리 할당기의 비교
+## 성능 테스트: 사용자 정의 메모리 할당기와 기본 메모리 할당기의 비교
 사용자 정의 메모리 할당기를 통해 메모리 관리의 효율성을 극대화하고, 이를 통해 FNN 신경망의 학습 속도를 향상시킬 수 있음을 실험을 통해 검증하였습니다.
 
-# 주요 코드
+## 주요 코드
 ConcurrentAlloc.h: 커스텀 메모리 할당자 구현
 NeuralNetwork.h 및 NeuralNetwork.cpp: 신경망 클래스 정의 및 구현
 main.cpp: 실험을 수행하는 메인 함수
 
-# main.cpp
+## main.cpp
 ![image](https://github.com/user-attachments/assets/b7d1ef2c-1e67-42d0-a54a-0f489f1609e9)
 ![image](https://github.com/user-attachments/assets/91992121-2086-4a54-8b0b-7d649b64211e)
 FNN을 이용하여 세 가지의 간단-중간-복잡한 신경망을 정의하여 테스트를 수행하였습니다
 
 
-# Dataset Size: 10000
+## Dataset Size: 10000
 
-# Simple Neural Network
+## Simple Neural Network
 ![image](https://github.com/user-attachments/assets/d0d62cda-5eb5-4bbc-a012-4ebdc5b4504d)
 ![image](https://github.com/user-attachments/assets/d777c60f-090d-4823-8c72-98bbeda0fe30)
 ![image](https://github.com/user-attachments/assets/01b66215-9723-42a3-ab81-0f69c3ff1a41)
 
-# Medium Neural Network
+## Medium Neural Network
 ![image](https://github.com/user-attachments/assets/f2b36ce2-db7e-4f6f-862d-92c9e2bea310)
 ![image](https://github.com/user-attachments/assets/e1d9913b-1a5a-4cdd-9dee-53466fcbd6ef)
 ![image](https://github.com/user-attachments/assets/74628861-43cf-42f3-bfa2-6c9423d60512)
 
-# Complex Neural Network
+## Complex Neural Network
 ![image](https://github.com/user-attachments/assets/1113453e-b70b-4cdb-b4e5-555bfb3342ee)
 ![image](https://github.com/user-attachments/assets/0c8e3765-c2fb-422c-ae3d-a71fc4c4f9ff)
 ![image](https://github.com/user-attachments/assets/ddc05a6d-e075-4daf-a180-91a3219b13a4)
 
-# Dataset Size: 50000
+## Dataset Size: 50000
 
-# Simple Neural Network
+## Simple Neural Network
 ![image](https://github.com/user-attachments/assets/59f75fdc-8290-4e01-831c-cb22dcf7cb2c)
 ![image](https://github.com/user-attachments/assets/cfc80309-a234-435d-be75-2af5fd70bc08)
 ![image](https://github.com/user-attachments/assets/9b3a4b31-e1c3-43aa-b896-2ad2b9e7fb09)
 
-# Medium Neural Network
+## Medium Neural Network
 ![image](https://github.com/user-attachments/assets/8f2814f3-68c2-49ed-b122-4131c03a281d)
 ![image](https://github.com/user-attachments/assets/f6896eca-2ad0-4de8-8c80-524410267b32)
 ![image](https://github.com/user-attachments/assets/1862e7d8-ff95-461c-9434-3727c4265542)
 
-# Complex Neural Network
+## Complex Neural Network
 ![image](https://github.com/user-attachments/assets/67665eba-666f-4954-86f4-9eeb8c7e556a)
 ![image](https://github.com/user-attachments/assets/47453f9f-1639-4928-8371-da908cd82973)
 ![image](https://github.com/user-attachments/assets/07f5b8a6-072f-4347-b8a4-2e74ede03ed9)
 
-# Dataset Size: 100000
+## Dataset Size: 100000
 
-# Simple Neural Network
+## Simple Neural Network
 ![image](https://github.com/user-attachments/assets/68e6caa1-53ef-4a45-b539-72ccf534f88e)
 ![image](https://github.com/user-attachments/assets/d3703d7e-c0c4-44bc-a7cf-738fbdfd93d3)
 ![image](https://github.com/user-attachments/assets/0863bcb0-ab9c-4917-b46f-10e773fe2a7a)
 
-# Medium Neural Network
+## Medium Neural Network
 ![image](https://github.com/user-attachments/assets/ddb7d7fd-bf59-46f2-b192-89ccbc2a3701)
 ![image](https://github.com/user-attachments/assets/c9bf09f7-f7f9-4903-8f57-2521242e9a0c)
 ![image](https://github.com/user-attachments/assets/68879fe1-7aaa-499e-ba4a-c6488c0bb786)
 
-# Complex Neural Network
+## Complex Neural Network
 ![image](https://github.com/user-attachments/assets/d8dd5ba8-936c-49a3-be6f-c86e2432fd85)
 ![image](https://github.com/user-attachments/assets/371b10fb-4aaa-4818-b10c-d58df785c03d)
 ![image](https://github.com/user-attachments/assets/8894be71-cd79-4371-a30d-248e2804e3f4)
 
-# 실험 결과 분석
+## 실험 결과 분석
 데이터 세트 크기: 10000
 
 간단한 신경망
