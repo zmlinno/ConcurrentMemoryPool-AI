@@ -12,10 +12,8 @@
 성능 테스트: 벤치마크 테스트를 통해 사용자 정의 메모리 할당자와 표준 메모리 할당자의 성능을 비교합니다.
 
 ## 기술 스택
-프로그래밍 언어: C++
-빌드 도구: Visual Studio 2019
-테스트 프레임워크: Visual Studio 2019
-딥러닝 라이브러리: FNN 신경망 
+![image](https://github.com/user-attachments/assets/f4048d21-86c1-4b2d-91d0-3b5ae5505da9)
+
 
 ## 프로젝트 구조
 ![image](https://github.com/user-attachments/assets/009c71f0-2bea-4bce-9b40-bdd6e6e477b3)
