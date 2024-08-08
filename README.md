@@ -167,7 +167,7 @@ FNN을 이용하여 세 가지의 간단-중간-복잡한 신경망을 정의하
 
 # Simple Neural Network
 ![image](https://github.com/user-attachments/assets/59f75fdc-8290-4e01-831c-cb22dcf7cb2c)
-![image](https://github.com/user-attachments/assets/cfc80309-a234-435d-be75-2af5fd70bc08
+![image](https://github.com/user-attachments/assets/cfc80309-a234-435d-be75-2af5fd70bc08)
 ![image](https://github.com/user-attachments/assets/9b3a4b31-e1c3-43aa-b896-2ad2b9e7fb09)
 
 # Medium Neural Network
